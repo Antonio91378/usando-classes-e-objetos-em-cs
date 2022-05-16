@@ -8,11 +8,11 @@ public class Jogador
 
     public string nome;
 
-    public Jogador(string n)
+    public Jogador(string nome)
     {
         energia = 100;
         vivo = true;
-        nome = n;
+        this.nome = nome;
     }
 }
 
@@ -23,9 +23,9 @@ public class Inimigo
     public static bool alerta;
 
     //criando o construtor
-    public Inimigo(string name)
+    public Inimigo(string nome)
     {
-        nome = name;
+        this.nome = nome;
         alerta = false;
     }
 
