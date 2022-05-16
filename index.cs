@@ -2,7 +2,8 @@ using System;
 
 public class Jogador
 {
-    public int energia;
+    // por ser private, eu só posso alterar o valor 'energia' dentro da classe, podendo utilizar métodos.
+    private int energia;
 
     public bool vivo;
 
@@ -14,12 +15,24 @@ public class Jogador
         vivo = true;
         this.nome = nome;
     }
+
+    public void setEnergia(int energia)
+    {
+        this.energia = energia;
+    }
+
+    public void info()
+    {
+        Console.WriteLine (nome);
+        Console.WriteLine (energia);
+    }
 }
 
 public class Inimigo
 {
     public string nome;
 
+    //todos os inimigos criados apontaram para o mesmo valor de alerta com o static
     public static bool alerta;
 
     //criando o construtor
@@ -49,5 +62,9 @@ class Principal
         I1.info();
         I2.info();
         I3.info();
+
+        Console.WriteLine("escreva a energia do jogador :");
+        j1.setEnergia(int.Parse(Console.ReadLine()));
+        j1.info();
     }
 }
