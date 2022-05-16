@@ -16,6 +16,10 @@ public class Jogador
         this.nome = nome;
     }
 
+    public Jogador()
+    {
+    }
+
     public void setEnergia(int energia)
     {
         this.energia = energia;
@@ -25,6 +29,16 @@ public class Jogador
     {
         Console.WriteLine (nome);
         Console.WriteLine (energia);
+        Console.WriteLine (vivo);
+    }
+}
+
+//trabalhando com herança
+class JogadorSecundario : Jogador
+{
+    public JogadorSecundario(string nome) :
+        base(nome)
+    {
     }
 }
 
@@ -53,18 +67,18 @@ class Principal
 {
     static void Main()
     {
-        Jogador j1 = new Jogador("Carlos");
-        Inimigo I1 = new Inimigo("dragao");
-        Inimigo I2 = new Inimigo("esqueleto");
-        Inimigo I3 = new Inimigo("fadacomcirrose");
-
-        Inimigo.alerta = true;
-        I1.info();
-        I2.info();
-        I3.info();
-
-        Console.WriteLine("escreva a energia do jogador :");
-        j1.setEnergia(int.Parse(Console.ReadLine()));
-        j1.info();
+        // Jogador j1 = new Jogador("Carlos");
+        // Inimigo I1 = new Inimigo("dragao");
+        // Inimigo I2 = new Inimigo("esqueleto");
+        // Inimigo I3 = new Inimigo("fadacomcirrose");
+        // Inimigo.alerta = true;
+        // I1.info();
+        // I2.info();
+        // I3.info();
+        // Console.WriteLine("escreva a energia do jogador :");
+        // j1.setEnergia(int.Parse(Console.ReadLine()));
+        // j1.info();
+        JogadorSecundario js1 = new JogadorSecundario("cleitu");
+        js1.info();
     }
 }
