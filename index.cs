@@ -16,16 +16,38 @@ public class Jogador
     }
 }
 
+public class Inimigo
+{
+    public string nome;
+
+    public static bool alerta;
+
+    //criando o construtor
+    public Inimigo(string name)
+    {
+        nome = name;
+        alerta = false;
+    }
+
+    public void info()
+    {
+        Console.WriteLine (nome);
+        Console.WriteLine (alerta);
+    }
+}
+
 class Principal
 {
     static void Main()
     {
         Jogador j1 = new Jogador("Carlos");
-        Jogador j2 = new Jogador("Antonio");
-        Jogador j3 = new Jogador("Lucas");
+        Inimigo I1 = new Inimigo("dragao");
+        Inimigo I2 = new Inimigo("esqueleto");
+        Inimigo I3 = new Inimigo("fadacomcirrose");
 
-        Console.WriteLine("O nome do jogador 1 é : {0}", j1.nome);
-        Console.WriteLine("O nome do jogador 2 é : {0}", j2.nome);
-        Console.WriteLine("O nome do jogador 3 é : {0}", j3.nome);
+        Inimigo.alerta = true;
+        I1.info();
+        I2.info();
+        I3.info();
     }
 }
