@@ -34,7 +34,7 @@ public class Jogador
 }
 
 //trabalhando com herança
-class JogadorSecundario : Jogador
+public class JogadorSecundario : Jogador
 {
     public JogadorSecundario(string nome) :
         base(nome)
@@ -63,6 +63,48 @@ public class Inimigo
     }
 }
 
+public class Montaria
+{
+    public int velAtual;
+
+    private int velMax;
+
+    // os membros protecteds aceitam ser alterados através de classes derivadas, de resto de igualam ao private.
+    protected bool ligado;
+
+    public Montaria(int velMax)
+    {
+        velAtual = 0;
+        this.velMax = velMax;
+        ligado = false;
+    }
+
+    public int getVelMax()
+    {
+        return velMax;
+    }
+}
+
+public class Dragao : Montaria
+{
+    public string nome;
+
+    public Dragao(string nome, int vm) :
+        base(vm)
+    {
+        this.nome = nome;
+        ligado = true; //consegui acessar por ser um método protected
+    }
+
+    public void info()
+    {
+        Console.WriteLine (nome);
+        Console.WriteLine(getVelMax());
+        Console.WriteLine (velAtual);
+        Console.WriteLine (ligado);
+    }
+}
+
 class Principal
 {
     static void Main()
@@ -78,7 +120,11 @@ class Principal
         // Console.WriteLine("escreva a energia do jogador :");
         // j1.setEnergia(int.Parse(Console.ReadLine()));
         // j1.info();
-        JogadorSecundario js1 = new JogadorSecundario("cleitu");
-        js1.info();
+        // --------------------------
+        // JogadorSecundario js1 = new JogadorSecundario("cleitu");
+        // js1.info();
+        // ===============================
+        Dragao d1 = new Dragao("virjao", 150);
+        d1.info();
     }
 }
